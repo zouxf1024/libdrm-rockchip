@@ -139,6 +139,7 @@ static const char * const modules[] = {
 	"imx-drm",
 	"rockchip",
 	"atmel-hlcdc",
+	"mediatek",
 };
 
 int util_open(const char *device, const char *module)

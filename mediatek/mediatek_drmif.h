@@ -73,5 +73,7 @@ struct mediatek_bo *mediatek_bo_from_name(struct mediatek_device *dev,
 			uint32_t name);
 int mediatek_bo_get_name(struct mediatek_bo *bo, uint32_t *name);
 uint32_t mediatek_bo_handle(struct mediatek_bo *bo);
+struct mediatek_bo *mediatek_bo_from_handle(struct mediatek_device *dev,
+			uint32_t handle, uint32_t flags, uint32_t size);
 void *mediatek_bo_map(struct mediatek_bo *bo);
 #endif /* MEDIATEK_DRMIF_H_ */

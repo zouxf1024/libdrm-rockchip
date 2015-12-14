@@ -129,6 +129,31 @@ fail:
 	return NULL;
 }
 
+struct mediatek_bo *mediatek_bo_from_handle(struct mediatek_device *dev,
+			uint32_t handle, uint32_t flags, uint32_t size)
+{
+	struct mediatek_bo *bo;
+
+	if (size == 0) {
+		fprintf(stderr, "invalid size.\n");
+		return NULL;
+	}
+
+	bo = calloc(1, sizeof(*bo));
+	if (!bo) {
+		fprintf(stderr, "failed to create bo[%s].\n",
+				strerror(errno));
+		return NULL;
+	}
+
+	bo->dev = dev;
+	bo->handle = handle;
+	bo->size = size;
+	bo->flags = flags;
+
+	return bo;
+}
+
 /*
  * Destroy a mediatek buffer object.
  *

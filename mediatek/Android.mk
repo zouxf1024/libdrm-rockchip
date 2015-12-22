@@ -15,8 +15,12 @@ LOCAL_C_INCLUDES := \
 	$(LIBDRM_TOP)/mediatek \
 	$(LIBDRM_TOP)/include/drm
 
+# This makes sure mmap64 is used, as mmap offsets can be larger than 32-bit
 LOCAL_CFLAGS := \
-	-DHAVE_LIBDRM_ATOMIC_PRIMITIVES=1
+	-DHAVE_LIBDRM_ATOMIC_PRIMITIVES=1 \
+	-D_LARGEFILE_SOURCE \
+	-D_LARGEFILE64_SOURCE \
+	-D_FILE_OFFSET_BITS=64
 
 LOCAL_COPY_HEADERS := mediatek_drm.h mediatek_drmif.h
 LOCAL_COPY_HEADERS_TO := libdrm

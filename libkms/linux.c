@@ -132,6 +132,11 @@ linux_from_sysfs(int fd, struct kms_driver **out)
 		ret = exynos_create(fd, out);
 	else
 #endif
+#ifdef HAVE_MEDIATEK
+        if (!strcmp(name, "mediatek"))
+                ret = mediatek_create(fd, out);
+        else
+#endif
 		ret = -ENOSYS;
 
 	free(name);

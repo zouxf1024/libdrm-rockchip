@@ -66,6 +66,8 @@ void rockchip_device_destroy(struct rockchip_device *dev);
  */
 struct rockchip_bo *rockchip_bo_create(struct rockchip_device *dev,
 			size_t size, uint32_t flags);
+int rockchip_bo_get_info(struct rockchip_device *dev, uint32_t handle,
+			size_t *size, uint32_t *flags);
 void rockchip_bo_destroy(struct rockchip_bo *bo);
 struct rockchip_bo *rockchip_bo_from_name(struct rockchip_device *dev,
 			uint32_t name);

@@ -11,10 +11,11 @@ libdrm_rockchip_la_LDFLAGS = -version-number 1:0:0 -no-undefined
 libdrm_rockchip_la_LIBADD = ../libdrm.la @PTHREADSTUBS_LIBS@
 
 libdrm_rockchip_la_SOURCES = \
-	rockchip_drm.c
+	rockchip_drm.c \
+	rockchip_rga.c
 
 libdrm_rockchipincludedir = ${includedir}/libdrm
-libdrm_rockchipinclude_HEADERS = rockchip_drmif.h rockchip_drm.h
+libdrm_rockchipinclude_HEADERS = rockchip_drmif.h rockchip_drm.h rockchip_rga.h
 
 pkgconfigdir = @pkgconfigdir@
 pkgconfig_DATA = libdrm_rockchip.pc

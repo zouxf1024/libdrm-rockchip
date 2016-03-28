@@ -22,6 +22,10 @@ if HAVE_TEGRA
 SUBDIRS += tegra
 endif
 
+if HAVE_ROCKCHIP
+SUBDIRS += rockchip
+endif
+
 AM_CFLAGS = \
 	$(WARN_CFLAGS)\
 	-I $(top_srcdir)/include/drm \

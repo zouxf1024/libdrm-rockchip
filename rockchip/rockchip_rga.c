@@ -917,16 +917,16 @@ int rga_copy(struct rga_context *ctx, struct rga_image *src,
 
 	src_w = w;
 	src_h = h;
-	if (src_x + src->width > w)
+	if (src_x + src_w > src->width)
 		src_w = src->width - src_x;
-	if (src_y + src->height > h)
+	if (src_y + src_h > src->height)
 		src_h = src->height - src_y;
 
 	dst_w = w;
 	dst_h = h;
-	if (dst_x + dst->width > w)
+	if (dst_x + dst_w > dst->width)
 		dst_w = dst->width - dst_x;
-	if (dst_y + dst->height > h)
+	if (dst_y + dst_h > dst->height)
 		dst_h = dst->height - dst_y;
 
 	w = (src_w < dst_w) ? src_w : dst_w;
@@ -937,7 +937,6 @@ int rga_copy(struct rga_context *ctx, struct rga_image *src,
 		rga_reset(ctx);
 		return -EINVAL;
 	}
-
 
 	return rga_multiple_transform(ctx, src, dst, src_x, src_y, src_w,
 				      src_h, dst_x, dst_y, dst_w, dst_h,
